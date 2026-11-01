@@ -68,7 +68,7 @@ export const SalasPage = () => {
     <div className='salas'>
       <h1>Reservar sala de estudio</h1>
 
-      <Modal open={!!confirmadas} onClose={() => setConfirmadas(null)} title={`✅ ¡${confirmadas?.length > 1 ? `${confirmadas.length} reservas confirmadas` : 'Reserva confirmada'}!`}>
+      <Modal open={!!confirmadas} onClose={() => setConfirmadas(null)} title={`¡${confirmadas?.length > 1 ? `${confirmadas.length} reservas confirmadas` : 'Reserva confirmada'}!`}>
         {confirmadas && (
           <>
             <ul className='modal__list'>

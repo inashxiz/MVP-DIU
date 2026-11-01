@@ -30,13 +30,13 @@ export const LibroPage = () => {
     if (!usuario) return pedirLogin('Ingresa con tu cuenta USM para reservar la copia física.')
     const r = { libroId: libro.id, titulo: libro.titulo, campus: copia.campus, signatura: copia.signatura, retiroHasta: enDias(2) }
     reservarLibro(r)
-    setAviso(`✅ Copia reservada en ${copia.campus}. Retírala en el mesón de préstamo con tu credencial USM hasta el ${r.retiroHasta}.`)
+    setAviso(`Copia reservada en ${copia.campus}. Retírala en el mesón de préstamo con tu credencial USM hasta el ${r.retiroHasta}.`)
   }
 
   const prestar = () => {
     if (!usuario) return pedirLogin('Ingresa con tu cuenta USM para pedir prestada la copia digital.')
     pedirPrestamo({ libroId: libro.id, titulo: libro.titulo, plataforma: libro.digital.plataforma, vence: enDias(14) })
-    setAviso('✅ Préstamo digital listo por 14 días. Ya puedes leerlo en línea.')
+    setAviso('Préstamo digital listo por 14 días. Ya puedes leerlo en línea.')
   }
 
   return (
@@ -58,7 +58,7 @@ export const LibroPage = () => {
       )}
 
       <section className='card'>
-        <h2 className='card__title'>📍 Copia física — Estado por campus</h2>
+        <h2 className='card__title'>Copia física — Estado por campus</h2>
         <table className='estado'>
           <thead><tr><th>Campus</th><th>Signatura</th><th>Estado</th><th /></tr></thead>
           <tbody>
@@ -83,7 +83,7 @@ export const LibroPage = () => {
       </section>
 
       <section className='card'>
-        <h2 className='card__title'>💻 Copia digital</h2>
+        <h2 className='card__title'>Copia digital</h2>
         {!libro.digital && <p>Este libro no tiene versión digital en la Biblioteca USM.</p>}
         {libro.digital && prestamo && (
           <>

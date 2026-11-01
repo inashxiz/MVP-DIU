@@ -38,7 +38,7 @@ export const MisReservasPage = () => {
       </Modal>
 
       <section className='card'>
-        <h2 className='card__title'>🪑 Salas de estudio</h2>
+        <h2 className='card__title'>Salas de estudio</h2>
         {reservasSala.length === 0 && <p className='muted'>No tienes salas reservadas. <Link to='/salas'>Reservar una sala</Link></p>}
         {reservasSala.map(r => (
           <div key={r.id} className='item'>
@@ -49,7 +49,7 @@ export const MisReservasPage = () => {
       </section>
 
       <section className='card'>
-        <h2 className='card__title'>📍 Libros físicos por retirar</h2>
+        <h2 className='card__title'>Libros físicos por retirar</h2>
         {reservasLibro.length === 0 && <p className='muted'>No tienes libros reservados. <Link to='/catalogo'>Buscar en el catálogo</Link></p>}
         {reservasLibro.map(r => (
           <div key={r.id} className='item'>
@@ -60,7 +60,7 @@ export const MisReservasPage = () => {
       </section>
 
       <section className='card'>
-        <h2 className='card__title'>💻 Préstamos digitales</h2>
+        <h2 className='card__title'>Préstamos digitales</h2>
         {prestamos.length === 0 && <p className='muted'>No tienes libros digitales prestados. <Link to='/catalogo'>Buscar en el catálogo</Link></p>}
         {prestamos.map(p => (
           <div key={p.id} className='item'>

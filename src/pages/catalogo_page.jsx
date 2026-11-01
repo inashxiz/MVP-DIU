@@ -75,9 +75,9 @@ export const CatalogoPage = () => {
             <div className='tags'>
               {campusMostrar.map(c => {
                 const n = disponiblesEn(l, c.campus, reservasLibro)
-                return <span key={c.campus} className={`tag ${n > 0 ? 'tag--ok' : 'tag--no'}`}>📍 {c.campus}: {n > 0 ? `${n} disponible${n > 1 ? 's' : ''}` : 'sin copias libres'}</span>
+                return <span key={c.campus} className={`tag ${n > 0 ? 'tag--ok' : 'tag--no'}`}>{c.campus}: {n > 0 ? `${n} disponible${n > 1 ? 's' : ''}` : 'sin copias libres'}</span>
               })}
-              {l.digital && <span className={`tag ${l.digital.disponibles > 0 ? 'tag--ok' : 'tag--no'}`}>💻 Digital: {l.digital.disponibles > 0 ? 'disponible' : 'en espera'}</span>}
+              {l.digital && <span className={`tag ${l.digital.disponibles > 0 ? 'tag--ok' : 'tag--no'}`}>Digital: {l.digital.disponibles > 0 ? 'disponible' : 'en espera'}</span>}
             </div>
           </Link>
         )

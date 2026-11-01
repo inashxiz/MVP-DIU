@@ -13,7 +13,7 @@ export const HomePage = () => {
     <>
       <p className="home__saludo">
         {usuario
-          ? `Hola, ${usuario.nombre} 👋`
+          ? `Hola, ${usuario.nombre}`
           : "¡Te damos la bienvenida a la Biblioteca USM!"}
       </p>
 
@@ -47,7 +47,6 @@ export const HomePage = () => {
 
       <div className="cards">
         <Link to="/salas" className="card card--link">
-          <span className="card__icon">🪑</span>
           <h2 className="card__title">Reservar sala de estudio</h2>
           <p>
             Elige campus, tipo de sala y capacidad. Ve los bloques libres y
@@ -55,7 +54,6 @@ export const HomePage = () => {
           </p>
         </Link>
         <Link to="/catalogo" className="card card--link">
-          <span className="card__icon">📚</span>
           <h2 className="card__title">Catálogo de libros</h2>
           <p>
             Busca un libro, filtra por campus y revisa cuántas copias quedan.
@@ -64,7 +62,6 @@ export const HomePage = () => {
           </p>
         </Link>
         <Link to="/mis-reservas" className="card card--link">
-          <span className="card__icon">🗓️</span>
           <h2 className="card__title">Mis reservas y préstamos</h2>
           <p>
             Revisa tus salas reservadas, libros por retirar y libros digitales
