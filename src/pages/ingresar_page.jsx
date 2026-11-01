@@ -10,7 +10,6 @@ export const IngresarPage = () => {
   const [correo, setCorreo] = useState('')
   const [clave, setClave] = useState('')
   const [error, setError] = useState('')
-  const volverA = location.state?.from || '/'
 
   const onSubmit = (e) => {
     e.preventDefault()
@@ -20,7 +19,9 @@ export const IngresarPage = () => {
     }
     if (clave.length < 4) return setError('Ingresa tu contraseña de SIGA / AULA.')
     ingresar(c)
-    navigate(volverA, { replace: true })
+    // Volver con -1 (no replace) evita duplicar la página de origen en el historial.
+    if (location.state?.from) navigate(-1)
+    else navigate('/', { replace: true })
   }
 
   return (

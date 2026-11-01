@@ -24,7 +24,7 @@ export const LibroPage = () => {
   const pedirLogin = (motivo) => navigate('/ingresar', { state: { from: location.pathname, motivo } })
   const yaReservado = (campus) => reservasLibro.some(r => r.libroId === libro.id && r.campus === campus)
   const prestamo = prestamos.find(p => p.libroId === libro.id)
-  const digitalLibres = libro.digital ? libro.digital.disponibles - (prestamo ? 1 : 0) : 0
+  const digitalLibres = libro.digital?.disponibles ?? 0
 
   const reservar = (copia) => {
     if (!usuario) return pedirLogin('Ingresa con tu cuenta USM para reservar la copia física.')
@@ -41,7 +41,7 @@ export const LibroPage = () => {
 
   return (
     <div className='libro'>
-      <button className='link' onClick={() => navigate(-1)}>← Volver a resultados</button>
+      <button className='link' onClick={() => navigate(-1)}>← Volver</button>
       <h1>{libro.titulo}</h1>
       <p>{libro.autor}</p>
       <p className='muted'>{libro.edicion} · {libro.editorial} · ISBN {libro.isbn}</p>
