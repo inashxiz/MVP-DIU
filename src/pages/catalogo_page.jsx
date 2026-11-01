@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 
 import { useApp } from '../components/app_state'
@@ -18,6 +18,7 @@ export const CatalogoPage = () => {
   const campus = params.get('campus') || 'Todos'
   const soloDisp = params.get('disp') === '1'
   const [texto, setTexto] = useState(q)
+  useEffect(() => setTexto(q), [q]) // p. ej. al tocar "Catálogo" en el menú
 
   const set = (cambios) => {
     const p = new URLSearchParams(params)
@@ -27,8 +28,8 @@ export const CatalogoPage = () => {
 
   const palabras = normalizar(q).split(/\s+/).filter(Boolean)
   const resultados = LIBROS.filter(l => {
-    const texto = normalizar(`${l.titulo} ${l.autor} ${l.tema} ${l.isbn}`)
-    if (!palabras.every(p => texto.includes(p))) return false
+    const haystack = normalizar(`${l.titulo} ${l.autor} ${l.tema} ${l.isbn}`)
+    if (!palabras.every(p => haystack.includes(p))) return false
     const campusLibro = campus === 'Todos' ? l.copias.map(c => c.campus) : [campus]
     if (campus !== 'Todos' && !l.copias.some(c => c.campus === campus)) return false
     if (soloDisp && !campusLibro.some(c => disponiblesEn(l, c, reservasLibro) > 0)) return false
