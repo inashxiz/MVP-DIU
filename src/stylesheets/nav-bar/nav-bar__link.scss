@@ -1,0 +1,12 @@
+.nav-bar__link {
+  display: inline-block;
+  padding: 12px 10px;
+  color: $navy;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+
+  &--active {
+    font-weight: 700;
+    border-bottom-color: $yellow;
+  }
+}
