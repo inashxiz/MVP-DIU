@@ -14,32 +14,28 @@ Base: https://github.com/alexarenasf/frontend-sample-app
 
 This repo includes `Webpack` to start an environment to build frontend views using `React`.
 
-### Requirements
+### Requisitos
 
 - Node >= 16.13.1
 - npm >= 8.1.2
 
 ### Quick start
 
-Install dependences
+Instalar dependencias
 
 ```
 npm install
 ```
 
-Launch environment
+Inicializar página
 
 ```
 npm run dev
 ```
 
-Now you can open http://localhost:5050
+Abrir http://localhost:5050
 
-### Packages included
+### Paquetes incluídos
 
 - [Webpack](https://webpack.js.org/)
 - [React Router](https://reactrouter.com/en/main)
-
-### About stylesheets
-
-- Sample stylesheets were written using the [BEM](https://getbem.com/) structure
