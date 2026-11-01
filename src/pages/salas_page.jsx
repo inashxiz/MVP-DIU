@@ -111,7 +111,7 @@ export const SalasPage = () => {
           const n = seleccion.filter(s => s.dia === i).length
           return (
             <button key={i} role='tab' aria-selected={i === dia} className={`chip ${i === dia ? 'chip--active' : ''}`} onClick={() => set({ dia: i })}>
-              {i === 0 ? 'Hoy' : formatoFecha(d)}{n > 0 && <span className='chip__count' aria-label={`${n} seleccionados`}>{n}</span>}
+              {d.toDateString() === new Date().toDateString() ? 'Hoy' : formatoFecha(d)}{n > 0 && <span className='chip__count' aria-label={`${n} seleccionados`}>{n}</span>}
             </button>
           )
         })}
@@ -153,7 +153,7 @@ export const SalasPage = () => {
             <ul className='summary__list'>
               {detalle.map(s => (
                 <li key={clave(s)} className='summary__item'>
-                  {s.sala.nombre} · {fechaDe(s.dia)} · {BLOQUES[s.bloque]}
+                  {s.sala.nombre} ({s.sala.campus}) · {fechaDe(s.dia)} · {BLOQUES[s.bloque]}
                   <button className='summary__remove' onClick={() => quitar(s)} aria-label={`Quitar ${s.sala.nombre}, ${fechaDe(s.dia)}, ${BLOQUES[s.bloque]}`}>×</button>
                 </li>
               ))}
